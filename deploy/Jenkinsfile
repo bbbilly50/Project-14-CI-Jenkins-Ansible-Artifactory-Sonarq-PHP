@@ -1,7 +1,22 @@
+<<<<<<< HEAD
 pipeline {
     agent any
 
   stages {
+=======
+   pipeline {
+    agent any
+
+  stages {
+    stage('Initial ceanup') {
+      steps {
+        dir("${WORKSPACE}") {
+          deleteDir()
+        }
+      }
+    }
+
+>>>>>>> 12dabdf5adc6a8692aa1d77c8da6f7befc3716e9
     stage('Build') {
       steps {
         script {
@@ -9,5 +24,39 @@ pipeline {
         }
       }
     }
+<<<<<<< HEAD
     }
+=======
+
+    stage('Test') {
+      steps {
+        script {
+          sh 'echo "Testing Stage"'
+        }
+      }
+    }
+
+    stage('Package') {
+      steps {
+        script {
+          sh 'echo "Packaging app"'
+        }
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        script {
+          sh 'echo "Deployment to Dev"'
+        }
+      }
+    } 
+
+    stage('clean up') {
+      steps {
+        cleanWs()
+      }
+    }
+  }
+>>>>>>> 12dabdf5adc6a8692aa1d77c8da6f7befc3716e9
 }

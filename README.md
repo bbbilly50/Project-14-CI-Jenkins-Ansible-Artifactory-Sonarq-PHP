@@ -66,7 +66,7 @@ DB_PORT=3306
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo yum install mysql -y
 
-Learn how to install Jenkins [here](https://www.jenkins.io/doc/book/installing/)
+`Learn how to install Jenkins [here](https://www.jenkins.io/doc/book/installing/)`
 
 Learn how to installk artifactory [here](https://jfrog.com/open-source/)
 

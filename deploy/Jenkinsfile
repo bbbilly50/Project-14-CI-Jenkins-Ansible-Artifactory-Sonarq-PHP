@@ -20,7 +20,7 @@ pipeline {
 
       stage('Checkout SCM') {
          steps{
-            git branch: 'main', url: 'https://github.com/Livingstone95/ansible-config.git'
+            git branch: 'feature/jenkinspipeline-stages', url: 'https://github.com/bbbilly50/Project-14-CI-Jenkins-Ansible-Artifactory-Sonarq-PHP.git'
          }
        }
 
@@ -33,12 +33,12 @@ pipeline {
 
       stage('Run Ansible playbook') {
         steps {
-           ansiblePlaybook become: true, colorized: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/${inventory}', playbook: 'playbooks/site.yml'
+           ansiblePlaybook become: true, colorized: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'enventory/dev', playbook: 'playbooks/site.yml'
          }
       }
 
-      stage('Clean Workspace after build'){
-        steps{
+      stage('Clean Workspace after build') {
+        steps {
           cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenUnstable: true, deleteDirs: true)
         }
       }

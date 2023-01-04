@@ -2,7 +2,7 @@
 - hosts: db
   name: database assignment
   ansible.builtin.import_playbook: ../static-assignments/database.yml
-
+    ignore_unreachable = yes
 - hosts: nginx
   name: nginx assignment
   ansible.builtin.import_playbook: ../static-assignments/nginx.yml
